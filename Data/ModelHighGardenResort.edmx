@@ -1,0 +1,1100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HighGardenResortModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="idAdministrador" />
+          </Key>
+          <Property Name="idAdministrador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuarioAdministrador" Type="varchar" MaxLength="15" />
+          <Property Name="contrasennaAdministrador" Type="varchar" MaxLength="15" />
+          <Property Name="nombreAdministrador" Type="varchar" MaxLength="30" />
+          <Property Name="apellidosAdministrador" Type="varchar" MaxLength="30" />
+          <Property Name="nivelAcceso" Type="int" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cedulaCliente" Type="varchar" MaxLength="9" />
+          <Property Name="nombreCliente" Type="varchar" MaxLength="30" />
+          <Property Name="apellidosCliente" Type="varchar" MaxLength="30" />
+          <Property Name="telefonoCliente" Type="varchar" MaxLength="9" />
+          <Property Name="emailCliente" Type="varchar" MaxLength="50" />
+          <Property Name="numeroTarjetaCliente" Type="varchar" MaxLength="16" />
+          <Property Name="codigoSeguridadCliente" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Facilidad">
+          <Key>
+            <PropertyRef Name="idFacilidad" />
+          </Key>
+          <Property Name="idFacilidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreFacilidad" Type="varchar" MaxLength="30" />
+          <Property Name="descripcionFacilidad" Type="text" />
+        </EntityType>
+        <EntityType Name="Habitacion">
+          <Key>
+            <PropertyRef Name="idHabitacion" />
+          </Key>
+          <Property Name="idHabitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numeroHabitacion" Type="int" />
+          <Property Name="idTipoHabitacionHabitacion" Type="int" />
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="idHotel" />
+          </Key>
+          <Property Name="idHotel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcionHotel" Type="text" />
+          <Property Name="sobreNosotrosHotel" Type="text" />
+          <Property Name="contactoHotel" Type="text" />
+        </EntityType>
+        <EntityType Name="Imagen">
+          <Key>
+            <PropertyRef Name="idImagen" />
+          </Key>
+          <Property Name="idImagen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rutaImagen" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ImagenFacilidad">
+          <Key>
+            <PropertyRef Name="idImagenFacilidad" />
+          </Key>
+          <Property Name="idImagenFacilidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idImagenImagenFacilidad" Type="int" />
+          <Property Name="idFacilidadImagenFacilidad" Type="int" />
+        </EntityType>
+        <EntityType Name="ImagenHotel">
+          <Key>
+            <PropertyRef Name="idImagenHotel" />
+          </Key>
+          <Property Name="idImagenHotel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idImagenImagenHotel" Type="int" />
+          <Property Name="idHotelImagenHotel" Type="int" />
+        </EntityType>
+        <EntityType Name="ImagenOferta">
+          <Key>
+            <PropertyRef Name="idImagenOferta" />
+          </Key>
+          <Property Name="idImagenOferta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idImagenImagenOferta" Type="int" />
+          <Property Name="idOfertaImagenOferta" Type="int" />
+        </EntityType>
+        <EntityType Name="ImagenPublicidad">
+          <Key>
+            <PropertyRef Name="idImagenPublicidad" />
+          </Key>
+          <Property Name="idImagenPublicidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idImagenImagenPublicidad" Type="int" />
+          <Property Name="iPublicidadImagenPublicidad" Type="int" />
+        </EntityType>
+        <EntityType Name="ImagenTipoHabitacion">
+          <Key>
+            <PropertyRef Name="idImagenTipoHabitacion" />
+          </Key>
+          <Property Name="idImagenTipoHabitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idImagenImagenTipoHabitacion" Type="int" />
+          <Property Name="idTipoHabitacionImagenTipoHabitacion" Type="int" />
+        </EntityType>
+        <EntityType Name="Oferta">
+          <Key>
+            <PropertyRef Name="idOferta" />
+          </Key>
+          <Property Name="idOferta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcionOferta" Type="text" />
+        </EntityType>
+        <EntityType Name="Publicidad">
+          <Key>
+            <PropertyRef Name="idPublicidad" />
+          </Key>
+          <Property Name="idPublicidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rutaPublicidad" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Reserva">
+          <Key>
+            <PropertyRef Name="idReserva" />
+          </Key>
+          <Property Name="idReserva" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="idClienteReserva" Type="int" />
+          <Property Name="fechaInicioReserva" Type="datetime" />
+          <Property Name="fechaFinalReserva" Type="datetime" />
+          <Property Name="precioTotalReserva" Type="money" />
+        </EntityType>
+        <EntityType Name="ReservaHabitacion">
+          <Key>
+            <PropertyRef Name="idReservaHabitacion" />
+          </Key>
+          <Property Name="idReservaHabitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idReservaReservaHabitacion" Type="varchar" MaxLength="30" />
+          <Property Name="idHabitacionReservaHabitacion" Type="int" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcionServicio" Type="text" />
+        </EntityType>
+        <EntityType Name="ServicioTipoHabitacion">
+          <Key>
+            <PropertyRef Name="idServicioTipoHabitacion" />
+          </Key>
+          <Property Name="idServicioTipoHabitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idServicioServicioTipoHabitacion" Type="int" />
+          <Property Name="idTipoHabitacionServicioTipoHabitacion" Type="int" />
+        </EntityType>
+        <EntityType Name="TipoHabitacion">
+          <Key>
+            <PropertyRef Name="idTipoHabitacion" />
+          </Key>
+          <Property Name="idTipoHabitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreTipoHabitacion" Type="varchar" MaxLength="30" />
+          <Property Name="descripcionTipoHabitacion" Type="text" />
+          <Property Name="precioTipoHabitacion" Type="money" />
+        </EntityType>
+        <Association Name="fk_clienteReserva">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="idClienteReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_facilidadImagenFacilidad">
+          <End Role="Facilidad" Type="Self.Facilidad" Multiplicity="0..1" />
+          <End Role="ImagenFacilidad" Type="Self.ImagenFacilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facilidad">
+              <PropertyRef Name="idFacilidad" />
+            </Principal>
+            <Dependent Role="ImagenFacilidad">
+              <PropertyRef Name="idFacilidadImagenFacilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_habitacionReservaHabitacion">
+          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="0..1" />
+          <End Role="ReservaHabitacion" Type="Self.ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Habitacion">
+              <PropertyRef Name="idHabitacion" />
+            </Principal>
+            <Dependent Role="ReservaHabitacion">
+              <PropertyRef Name="idHabitacionReservaHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_hotelImagenHotel">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="ImagenHotel" Type="Self.ImagenHotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="idHotel" />
+            </Principal>
+            <Dependent Role="ImagenHotel">
+              <PropertyRef Name="idHotelImagenHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_imagenImagenFacilidad">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="0..1" />
+          <End Role="ImagenFacilidad" Type="Self.ImagenFacilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="idImagen" />
+            </Principal>
+            <Dependent Role="ImagenFacilidad">
+              <PropertyRef Name="idImagenImagenFacilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_imagenImagenHotel">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="0..1" />
+          <End Role="ImagenHotel" Type="Self.ImagenHotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="idImagen" />
+            </Principal>
+            <Dependent Role="ImagenHotel">
+              <PropertyRef Name="idImagenImagenHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_imagenImagenOferta">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="0..1" />
+          <End Role="ImagenOferta" Type="Self.ImagenOferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="idImagen" />
+            </Principal>
+            <Dependent Role="ImagenOferta">
+              <PropertyRef Name="idImagenImagenOferta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_imagenImagenPublicidad">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="0..1" />
+          <End Role="ImagenPublicidad" Type="Self.ImagenPublicidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="idImagen" />
+            </Principal>
+            <Dependent Role="ImagenPublicidad">
+              <PropertyRef Name="idImagenImagenPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_imagenImagenTipoHabitacion">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="0..1" />
+          <End Role="ImagenTipoHabitacion" Type="Self.ImagenTipoHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="idImagen" />
+            </Principal>
+            <Dependent Role="ImagenTipoHabitacion">
+              <PropertyRef Name="idImagenImagenTipoHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ofertaImagenOferta">
+          <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
+          <End Role="ImagenOferta" Type="Self.ImagenOferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oferta">
+              <PropertyRef Name="idOferta" />
+            </Principal>
+            <Dependent Role="ImagenOferta">
+              <PropertyRef Name="idOfertaImagenOferta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_publicidadImagenPublicidad">
+          <End Role="Publicidad" Type="Self.Publicidad" Multiplicity="0..1" />
+          <End Role="ImagenPublicidad" Type="Self.ImagenPublicidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publicidad">
+              <PropertyRef Name="idPublicidad" />
+            </Principal>
+            <Dependent Role="ImagenPublicidad">
+              <PropertyRef Name="iPublicidadImagenPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reservaReservaHabitacion">
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="0..1" />
+          <End Role="ReservaHabitacion" Type="Self.ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="idReserva" />
+            </Principal>
+            <Dependent Role="ReservaHabitacion">
+              <PropertyRef Name="idReservaReservaHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_servicioServicioTipoHabitacion">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+          <End Role="ServicioTipoHabitacion" Type="Self.ServicioTipoHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="idServicio" />
+            </Principal>
+            <Dependent Role="ServicioTipoHabitacion">
+              <PropertyRef Name="idServicioServicioTipoHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipohabitacionHabitacion">
+          <End Role="TipoHabitacion" Type="Self.TipoHabitacion" Multiplicity="0..1" />
+          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoHabitacion">
+              <PropertyRef Name="idTipoHabitacion" />
+            </Principal>
+            <Dependent Role="Habitacion">
+              <PropertyRef Name="idTipoHabitacionHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipoHabitacionImagenTipoHabitacion">
+          <End Role="TipoHabitacion" Type="Self.TipoHabitacion" Multiplicity="0..1" />
+          <End Role="ImagenTipoHabitacion" Type="Self.ImagenTipoHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoHabitacion">
+              <PropertyRef Name="idTipoHabitacion" />
+            </Principal>
+            <Dependent Role="ImagenTipoHabitacion">
+              <PropertyRef Name="idTipoHabitacionImagenTipoHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipohabitacionServicioTipoHabitacion">
+          <End Role="TipoHabitacion" Type="Self.TipoHabitacion" Multiplicity="0..1" />
+          <End Role="ServicioTipoHabitacion" Type="Self.ServicioTipoHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoHabitacion">
+              <PropertyRef Name="idTipoHabitacion" />
+            </Principal>
+            <Dependent Role="ServicioTipoHabitacion">
+              <PropertyRef Name="idTipoHabitacionServicioTipoHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HighGardenResortModelStoreContainer">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facilidad" EntityType="Self.Facilidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Habitacion" EntityType="Self.Habitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Imagen" EntityType="Self.Imagen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagenFacilidad" EntityType="Self.ImagenFacilidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagenHotel" EntityType="Self.ImagenHotel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagenOferta" EntityType="Self.ImagenOferta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagenPublicidad" EntityType="Self.ImagenPublicidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagenTipoHabitacion" EntityType="Self.ImagenTipoHabitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oferta" EntityType="Self.Oferta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publicidad" EntityType="Self.Publicidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reserva" EntityType="Self.Reserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReservaHabitacion" EntityType="Self.ReservaHabitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServicioTipoHabitacion" EntityType="Self.ServicioTipoHabitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoHabitacion" EntityType="Self.TipoHabitacion" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_clienteReserva" Association="Self.fk_clienteReserva">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Reserva" EntitySet="Reserva" />
+          </AssociationSet>
+          <AssociationSet Name="fk_facilidadImagenFacilidad" Association="Self.fk_facilidadImagenFacilidad">
+            <End Role="Facilidad" EntitySet="Facilidad" />
+            <End Role="ImagenFacilidad" EntitySet="ImagenFacilidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_habitacionReservaHabitacion" Association="Self.fk_habitacionReservaHabitacion">
+            <End Role="Habitacion" EntitySet="Habitacion" />
+            <End Role="ReservaHabitacion" EntitySet="ReservaHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_hotelImagenHotel" Association="Self.fk_hotelImagenHotel">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="ImagenHotel" EntitySet="ImagenHotel" />
+          </AssociationSet>
+          <AssociationSet Name="fk_imagenImagenFacilidad" Association="Self.fk_imagenImagenFacilidad">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="ImagenFacilidad" EntitySet="ImagenFacilidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_imagenImagenHotel" Association="Self.fk_imagenImagenHotel">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="ImagenHotel" EntitySet="ImagenHotel" />
+          </AssociationSet>
+          <AssociationSet Name="fk_imagenImagenOferta" Association="Self.fk_imagenImagenOferta">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="ImagenOferta" EntitySet="ImagenOferta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_imagenImagenPublicidad" Association="Self.fk_imagenImagenPublicidad">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="ImagenPublicidad" EntitySet="ImagenPublicidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_imagenImagenTipoHabitacion" Association="Self.fk_imagenImagenTipoHabitacion">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="ImagenTipoHabitacion" EntitySet="ImagenTipoHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ofertaImagenOferta" Association="Self.fk_ofertaImagenOferta">
+            <End Role="Oferta" EntitySet="Oferta" />
+            <End Role="ImagenOferta" EntitySet="ImagenOferta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_publicidadImagenPublicidad" Association="Self.fk_publicidadImagenPublicidad">
+            <End Role="Publicidad" EntitySet="Publicidad" />
+            <End Role="ImagenPublicidad" EntitySet="ImagenPublicidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reservaReservaHabitacion" Association="Self.fk_reservaReservaHabitacion">
+            <End Role="Reserva" EntitySet="Reserva" />
+            <End Role="ReservaHabitacion" EntitySet="ReservaHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_servicioServicioTipoHabitacion" Association="Self.fk_servicioServicioTipoHabitacion">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="ServicioTipoHabitacion" EntitySet="ServicioTipoHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipohabitacionHabitacion" Association="Self.fk_tipohabitacionHabitacion">
+            <End Role="TipoHabitacion" EntitySet="TipoHabitacion" />
+            <End Role="Habitacion" EntitySet="Habitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipoHabitacionImagenTipoHabitacion" Association="Self.fk_tipoHabitacionImagenTipoHabitacion">
+            <End Role="TipoHabitacion" EntitySet="TipoHabitacion" />
+            <End Role="ImagenTipoHabitacion" EntitySet="ImagenTipoHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipohabitacionServicioTipoHabitacion" Association="Self.fk_tipohabitacionServicioTipoHabitacion">
+            <End Role="TipoHabitacion" EntitySet="TipoHabitacion" />
+            <End Role="ServicioTipoHabitacion" EntitySet="ServicioTipoHabitacion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HighGardenResortModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="idAdministrador" />
+          </Key>
+          <Property Name="idAdministrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuarioAdministrador" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="contrasennaAdministrador" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="nombreAdministrador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="apellidosAdministrador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="nivelAcceso" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedulaCliente" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="nombreCliente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="apellidosCliente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="telefonoCliente" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="emailCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroTarjetaCliente" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="codigoSeguridadCliente" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reserva" Relationship="Self.fk_clienteReserva" FromRole="Cliente" ToRole="Reserva" />
+        </EntityType>
+        <EntityType Name="Facilidad">
+          <Key>
+            <PropertyRef Name="idFacilidad" />
+          </Key>
+          <Property Name="idFacilidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreFacilidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="descripcionFacilidad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ImagenFacilidad" Relationship="Self.fk_facilidadImagenFacilidad" FromRole="Facilidad" ToRole="ImagenFacilidad" />
+        </EntityType>
+        <EntityType Name="Habitacion">
+          <Key>
+            <PropertyRef Name="idHabitacion" />
+          </Key>
+          <Property Name="idHabitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numeroHabitacion" Type="Int32" />
+          <Property Name="idTipoHabitacionHabitacion" Type="Int32" />
+          <NavigationProperty Name="ReservaHabitacion" Relationship="Self.fk_habitacionReservaHabitacion" FromRole="Habitacion" ToRole="ReservaHabitacion" />
+          <NavigationProperty Name="TipoHabitacion" Relationship="Self.fk_tipohabitacionHabitacion" FromRole="Habitacion" ToRole="TipoHabitacion" />
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="idHotel" />
+          </Key>
+          <Property Name="idHotel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcionHotel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sobreNosotrosHotel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="contactoHotel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ImagenHotel" Relationship="Self.fk_hotelImagenHotel" FromRole="Hotel" ToRole="ImagenHotel" />
+        </EntityType>
+        <EntityType Name="Imagen">
+          <Key>
+            <PropertyRef Name="idImagen" />
+          </Key>
+          <Property Name="idImagen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rutaImagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ImagenFacilidad" Relationship="Self.fk_imagenImagenFacilidad" FromRole="Imagen" ToRole="ImagenFacilidad" />
+          <NavigationProperty Name="ImagenHotel" Relationship="Self.fk_imagenImagenHotel" FromRole="Imagen" ToRole="ImagenHotel" />
+          <NavigationProperty Name="ImagenOferta" Relationship="Self.fk_imagenImagenOferta" FromRole="Imagen" ToRole="ImagenOferta" />
+          <NavigationProperty Name="ImagenPublicidad" Relationship="Self.fk_imagenImagenPublicidad" FromRole="Imagen" ToRole="ImagenPublicidad" />
+          <NavigationProperty Name="ImagenTipoHabitacion" Relationship="Self.fk_imagenImagenTipoHabitacion" FromRole="Imagen" ToRole="ImagenTipoHabitacion" />
+        </EntityType>
+        <EntityType Name="ImagenFacilidad">
+          <Key>
+            <PropertyRef Name="idImagenFacilidad" />
+          </Key>
+          <Property Name="idImagenFacilidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idImagenImagenFacilidad" Type="Int32" />
+          <Property Name="idFacilidadImagenFacilidad" Type="Int32" />
+          <NavigationProperty Name="Facilidad" Relationship="Self.fk_facilidadImagenFacilidad" FromRole="ImagenFacilidad" ToRole="Facilidad" />
+          <NavigationProperty Name="Imagen" Relationship="Self.fk_imagenImagenFacilidad" FromRole="ImagenFacilidad" ToRole="Imagen" />
+        </EntityType>
+        <EntityType Name="ImagenHotel">
+          <Key>
+            <PropertyRef Name="idImagenHotel" />
+          </Key>
+          <Property Name="idImagenHotel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idImagenImagenHotel" Type="Int32" />
+          <Property Name="idHotelImagenHotel" Type="Int32" />
+          <NavigationProperty Name="Hotel" Relationship="Self.fk_hotelImagenHotel" FromRole="ImagenHotel" ToRole="Hotel" />
+          <NavigationProperty Name="Imagen" Relationship="Self.fk_imagenImagenHotel" FromRole="ImagenHotel" ToRole="Imagen" />
+        </EntityType>
+        <EntityType Name="ImagenOferta">
+          <Key>
+            <PropertyRef Name="idImagenOferta" />
+          </Key>
+          <Property Name="idImagenOferta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idImagenImagenOferta" Type="Int32" />
+          <Property Name="idOfertaImagenOferta" Type="Int32" />
+          <NavigationProperty Name="Imagen" Relationship="Self.fk_imagenImagenOferta" FromRole="ImagenOferta" ToRole="Imagen" />
+          <NavigationProperty Name="Oferta" Relationship="Self.fk_ofertaImagenOferta" FromRole="ImagenOferta" ToRole="Oferta" />
+        </EntityType>
+        <EntityType Name="ImagenPublicidad">
+          <Key>
+            <PropertyRef Name="idImagenPublicidad" />
+          </Key>
+          <Property Name="idImagenPublicidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idImagenImagenPublicidad" Type="Int32" />
+          <Property Name="iPublicidadImagenPublicidad" Type="Int32" />
+          <NavigationProperty Name="Imagen" Relationship="Self.fk_imagenImagenPublicidad" FromRole="ImagenPublicidad" ToRole="Imagen" />
+          <NavigationProperty Name="Publicidad" Relationship="Self.fk_publicidadImagenPublicidad" FromRole="ImagenPublicidad" ToRole="Publicidad" />
+        </EntityType>
+        <EntityType Name="ImagenTipoHabitacion">
+          <Key>
+            <PropertyRef Name="idImagenTipoHabitacion" />
+          </Key>
+          <Property Name="idImagenTipoHabitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idImagenImagenTipoHabitacion" Type="Int32" />
+          <Property Name="idTipoHabitacionImagenTipoHabitacion" Type="Int32" />
+          <NavigationProperty Name="Imagen" Relationship="Self.fk_imagenImagenTipoHabitacion" FromRole="ImagenTipoHabitacion" ToRole="Imagen" />
+          <NavigationProperty Name="TipoHabitacion" Relationship="Self.fk_tipoHabitacionImagenTipoHabitacion" FromRole="ImagenTipoHabitacion" ToRole="TipoHabitacion" />
+        </EntityType>
+        <EntityType Name="Oferta">
+          <Key>
+            <PropertyRef Name="idOferta" />
+          </Key>
+          <Property Name="idOferta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcionOferta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ImagenOferta" Relationship="Self.fk_ofertaImagenOferta" FromRole="Oferta" ToRole="ImagenOferta" />
+        </EntityType>
+        <EntityType Name="Publicidad">
+          <Key>
+            <PropertyRef Name="idPublicidad" />
+          </Key>
+          <Property Name="idPublicidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rutaPublicidad" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ImagenPublicidad" Relationship="Self.fk_publicidadImagenPublicidad" FromRole="Publicidad" ToRole="ImagenPublicidad" />
+        </EntityType>
+        <EntityType Name="Reserva">
+          <Key>
+            <PropertyRef Name="idReserva" />
+          </Key>
+          <Property Name="idReserva" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClienteReserva" Type="Int32" />
+          <Property Name="fechaInicioReserva" Type="DateTime" Precision="3" />
+          <Property Name="fechaFinalReserva" Type="DateTime" Precision="3" />
+          <Property Name="precioTotalReserva" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Cliente" Relationship="Self.fk_clienteReserva" FromRole="Reserva" ToRole="Cliente" />
+          <NavigationProperty Name="ReservaHabitacion" Relationship="Self.fk_reservaReservaHabitacion" FromRole="Reserva" ToRole="ReservaHabitacion" />
+        </EntityType>
+        <EntityType Name="ReservaHabitacion">
+          <Key>
+            <PropertyRef Name="idReservaHabitacion" />
+          </Key>
+          <Property Name="idReservaHabitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idReservaReservaHabitacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="idHabitacionReservaHabitacion" Type="Int32" />
+          <NavigationProperty Name="Habitacion" Relationship="Self.fk_habitacionReservaHabitacion" FromRole="ReservaHabitacion" ToRole="Habitacion" />
+          <NavigationProperty Name="Reserva" Relationship="Self.fk_reservaReservaHabitacion" FromRole="ReservaHabitacion" ToRole="Reserva" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcionServicio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ServicioTipoHabitacion" Relationship="Self.fk_servicioServicioTipoHabitacion" FromRole="Servicio" ToRole="ServicioTipoHabitacion" />
+        </EntityType>
+        <EntityType Name="ServicioTipoHabitacion">
+          <Key>
+            <PropertyRef Name="idServicioTipoHabitacion" />
+          </Key>
+          <Property Name="idServicioTipoHabitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idServicioServicioTipoHabitacion" Type="Int32" />
+          <Property Name="idTipoHabitacionServicioTipoHabitacion" Type="Int32" />
+          <NavigationProperty Name="Servicio" Relationship="Self.fk_servicioServicioTipoHabitacion" FromRole="ServicioTipoHabitacion" ToRole="Servicio" />
+          <NavigationProperty Name="TipoHabitacion" Relationship="Self.fk_tipohabitacionServicioTipoHabitacion" FromRole="ServicioTipoHabitacion" ToRole="TipoHabitacion" />
+        </EntityType>
+        <EntityType Name="TipoHabitacion">
+          <Key>
+            <PropertyRef Name="idTipoHabitacion" />
+          </Key>
+          <Property Name="idTipoHabitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreTipoHabitacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="descripcionTipoHabitacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="precioTipoHabitacion" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Habitacion" Relationship="Self.fk_tipohabitacionHabitacion" FromRole="TipoHabitacion" ToRole="Habitacion" />
+          <NavigationProperty Name="ImagenTipoHabitacion" Relationship="Self.fk_tipoHabitacionImagenTipoHabitacion" FromRole="TipoHabitacion" ToRole="ImagenTipoHabitacion" />
+          <NavigationProperty Name="ServicioTipoHabitacion" Relationship="Self.fk_tipohabitacionServicioTipoHabitacion" FromRole="TipoHabitacion" ToRole="ServicioTipoHabitacion" />
+        </EntityType>
+        <Association Name="fk_clienteReserva">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="idClienteReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_facilidadImagenFacilidad">
+          <End Role="Facilidad" Type="Self.Facilidad" Multiplicity="0..1" />
+          <End Role="ImagenFacilidad" Type="Self.ImagenFacilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facilidad">
+              <PropertyRef Name="idFacilidad" />
+            </Principal>
+            <Dependent Role="ImagenFacilidad">
+              <PropertyRef Name="idFacilidadImagenFacilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_habitacionReservaHabitacion">
+          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="0..1" />
+          <End Role="ReservaHabitacion" Type="Self.ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Habitacion">
+              <PropertyRef Name="idHabitacion" />
+            </Principal>
+            <Dependent Role="ReservaHabitacion">
+              <PropertyRef Name="idHabitacionReservaHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipohabitacionHabitacion">
+          <End Role="TipoHabitacion" Type="Self.TipoHabitacion" Multiplicity="0..1" />
+          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoHabitacion">
+              <PropertyRef Name="idTipoHabitacion" />
+            </Principal>
+            <Dependent Role="Habitacion">
+              <PropertyRef Name="idTipoHabitacionHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_hotelImagenHotel">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="ImagenHotel" Type="Self.ImagenHotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="idHotel" />
+            </Principal>
+            <Dependent Role="ImagenHotel">
+              <PropertyRef Name="idHotelImagenHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_imagenImagenFacilidad">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="0..1" />
+          <End Role="ImagenFacilidad" Type="Self.ImagenFacilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="idImagen" />
+            </Principal>
+            <Dependent Role="ImagenFacilidad">
+              <PropertyRef Name="idImagenImagenFacilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_imagenImagenHotel">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="0..1" />
+          <End Role="ImagenHotel" Type="Self.ImagenHotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="idImagen" />
+            </Principal>
+            <Dependent Role="ImagenHotel">
+              <PropertyRef Name="idImagenImagenHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_imagenImagenOferta">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="0..1" />
+          <End Role="ImagenOferta" Type="Self.ImagenOferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="idImagen" />
+            </Principal>
+            <Dependent Role="ImagenOferta">
+              <PropertyRef Name="idImagenImagenOferta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_imagenImagenPublicidad">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="0..1" />
+          <End Role="ImagenPublicidad" Type="Self.ImagenPublicidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="idImagen" />
+            </Principal>
+            <Dependent Role="ImagenPublicidad">
+              <PropertyRef Name="idImagenImagenPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_imagenImagenTipoHabitacion">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="0..1" />
+          <End Role="ImagenTipoHabitacion" Type="Self.ImagenTipoHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="idImagen" />
+            </Principal>
+            <Dependent Role="ImagenTipoHabitacion">
+              <PropertyRef Name="idImagenImagenTipoHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ofertaImagenOferta">
+          <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
+          <End Role="ImagenOferta" Type="Self.ImagenOferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oferta">
+              <PropertyRef Name="idOferta" />
+            </Principal>
+            <Dependent Role="ImagenOferta">
+              <PropertyRef Name="idOfertaImagenOferta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_publicidadImagenPublicidad">
+          <End Role="Publicidad" Type="Self.Publicidad" Multiplicity="0..1" />
+          <End Role="ImagenPublicidad" Type="Self.ImagenPublicidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publicidad">
+              <PropertyRef Name="idPublicidad" />
+            </Principal>
+            <Dependent Role="ImagenPublicidad">
+              <PropertyRef Name="iPublicidadImagenPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipoHabitacionImagenTipoHabitacion">
+          <End Role="TipoHabitacion" Type="Self.TipoHabitacion" Multiplicity="0..1" />
+          <End Role="ImagenTipoHabitacion" Type="Self.ImagenTipoHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoHabitacion">
+              <PropertyRef Name="idTipoHabitacion" />
+            </Principal>
+            <Dependent Role="ImagenTipoHabitacion">
+              <PropertyRef Name="idTipoHabitacionImagenTipoHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reservaReservaHabitacion">
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="0..1" />
+          <End Role="ReservaHabitacion" Type="Self.ReservaHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="idReserva" />
+            </Principal>
+            <Dependent Role="ReservaHabitacion">
+              <PropertyRef Name="idReservaReservaHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_servicioServicioTipoHabitacion">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+          <End Role="ServicioTipoHabitacion" Type="Self.ServicioTipoHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="idServicio" />
+            </Principal>
+            <Dependent Role="ServicioTipoHabitacion">
+              <PropertyRef Name="idServicioServicioTipoHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipohabitacionServicioTipoHabitacion">
+          <End Role="TipoHabitacion" Type="Self.TipoHabitacion" Multiplicity="0..1" />
+          <End Role="ServicioTipoHabitacion" Type="Self.ServicioTipoHabitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoHabitacion">
+              <PropertyRef Name="idTipoHabitacion" />
+            </Principal>
+            <Dependent Role="ServicioTipoHabitacion">
+              <PropertyRef Name="idTipoHabitacionServicioTipoHabitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HighGardenResortEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Facilidad" EntityType="Self.Facilidad" />
+          <EntitySet Name="Habitacion" EntityType="Self.Habitacion" />
+          <EntitySet Name="Hotel" EntityType="Self.Hotel" />
+          <EntitySet Name="Imagen" EntityType="Self.Imagen" />
+          <EntitySet Name="ImagenFacilidad" EntityType="Self.ImagenFacilidad" />
+          <EntitySet Name="ImagenHotel" EntityType="Self.ImagenHotel" />
+          <EntitySet Name="ImagenOferta" EntityType="Self.ImagenOferta" />
+          <EntitySet Name="ImagenPublicidad" EntityType="Self.ImagenPublicidad" />
+          <EntitySet Name="ImagenTipoHabitacion" EntityType="Self.ImagenTipoHabitacion" />
+          <EntitySet Name="Oferta" EntityType="Self.Oferta" />
+          <EntitySet Name="Publicidad" EntityType="Self.Publicidad" />
+          <EntitySet Name="Reserva" EntityType="Self.Reserva" />
+          <EntitySet Name="ReservaHabitacion" EntityType="Self.ReservaHabitacion" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" />
+          <EntitySet Name="ServicioTipoHabitacion" EntityType="Self.ServicioTipoHabitacion" />
+          <EntitySet Name="TipoHabitacion" EntityType="Self.TipoHabitacion" />
+          <AssociationSet Name="fk_clienteReserva" Association="Self.fk_clienteReserva">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Reserva" EntitySet="Reserva" />
+          </AssociationSet>
+          <AssociationSet Name="fk_facilidadImagenFacilidad" Association="Self.fk_facilidadImagenFacilidad">
+            <End Role="Facilidad" EntitySet="Facilidad" />
+            <End Role="ImagenFacilidad" EntitySet="ImagenFacilidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_habitacionReservaHabitacion" Association="Self.fk_habitacionReservaHabitacion">
+            <End Role="Habitacion" EntitySet="Habitacion" />
+            <End Role="ReservaHabitacion" EntitySet="ReservaHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipohabitacionHabitacion" Association="Self.fk_tipohabitacionHabitacion">
+            <End Role="TipoHabitacion" EntitySet="TipoHabitacion" />
+            <End Role="Habitacion" EntitySet="Habitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_hotelImagenHotel" Association="Self.fk_hotelImagenHotel">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="ImagenHotel" EntitySet="ImagenHotel" />
+          </AssociationSet>
+          <AssociationSet Name="fk_imagenImagenFacilidad" Association="Self.fk_imagenImagenFacilidad">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="ImagenFacilidad" EntitySet="ImagenFacilidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_imagenImagenHotel" Association="Self.fk_imagenImagenHotel">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="ImagenHotel" EntitySet="ImagenHotel" />
+          </AssociationSet>
+          <AssociationSet Name="fk_imagenImagenOferta" Association="Self.fk_imagenImagenOferta">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="ImagenOferta" EntitySet="ImagenOferta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_imagenImagenPublicidad" Association="Self.fk_imagenImagenPublicidad">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="ImagenPublicidad" EntitySet="ImagenPublicidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_imagenImagenTipoHabitacion" Association="Self.fk_imagenImagenTipoHabitacion">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="ImagenTipoHabitacion" EntitySet="ImagenTipoHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ofertaImagenOferta" Association="Self.fk_ofertaImagenOferta">
+            <End Role="Oferta" EntitySet="Oferta" />
+            <End Role="ImagenOferta" EntitySet="ImagenOferta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_publicidadImagenPublicidad" Association="Self.fk_publicidadImagenPublicidad">
+            <End Role="Publicidad" EntitySet="Publicidad" />
+            <End Role="ImagenPublicidad" EntitySet="ImagenPublicidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipoHabitacionImagenTipoHabitacion" Association="Self.fk_tipoHabitacionImagenTipoHabitacion">
+            <End Role="TipoHabitacion" EntitySet="TipoHabitacion" />
+            <End Role="ImagenTipoHabitacion" EntitySet="ImagenTipoHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reservaReservaHabitacion" Association="Self.fk_reservaReservaHabitacion">
+            <End Role="Reserva" EntitySet="Reserva" />
+            <End Role="ReservaHabitacion" EntitySet="ReservaHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_servicioServicioTipoHabitacion" Association="Self.fk_servicioServicioTipoHabitacion">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="ServicioTipoHabitacion" EntitySet="ServicioTipoHabitacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipohabitacionServicioTipoHabitacion" Association="Self.fk_tipohabitacionServicioTipoHabitacion">
+            <End Role="TipoHabitacion" EntitySet="TipoHabitacion" />
+            <End Role="ServicioTipoHabitacion" EntitySet="ServicioTipoHabitacion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HighGardenResortModelStoreContainer" CdmEntityContainer="HighGardenResortEntities">
+          <EntitySetMapping Name="Administrador">
+            <EntityTypeMapping TypeName="HighGardenResortModel.Administrador">
+              <MappingFragment StoreEntitySet="Administrador">
+                <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
+                <ScalarProperty Name="usuarioAdministrador" ColumnName="usuarioAdministrador" />
+                <ScalarProperty Name="contrasennaAdministrador" ColumnName="contrasennaAdministrador" />
+                <ScalarProperty Name="nombreAdministrador" ColumnName="nombreAdministrador" />
+                <ScalarProperty Name="apellidosAdministrador" ColumnName="apellidosAdministrador" />
+                <ScalarProperty Name="nivelAcceso" ColumnName="nivelAcceso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="HighGardenResortModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="cedulaCliente" ColumnName="cedulaCliente" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="apellidosCliente" ColumnName="apellidosCliente" />
+                <ScalarProperty Name="telefonoCliente" ColumnName="telefonoCliente" />
+                <ScalarProperty Name="emailCliente" ColumnName="emailCliente" />
+                <ScalarProperty Name="numeroTarjetaCliente" ColumnName="numeroTarjetaCliente" />
+                <ScalarProperty Name="codigoSeguridadCliente" ColumnName="codigoSeguridadCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facilidad">
+            <EntityTypeMapping TypeName="HighGardenResortModel.Facilidad">
+              <MappingFragment StoreEntitySet="Facilidad">
+                <ScalarProperty Name="idFacilidad" ColumnName="idFacilidad" />
+                <ScalarProperty Name="nombreFacilidad" ColumnName="nombreFacilidad" />
+                <ScalarProperty Name="descripcionFacilidad" ColumnName="descripcionFacilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Habitacion">
+            <EntityTypeMapping TypeName="HighGardenResortModel.Habitacion">
+              <MappingFragment StoreEntitySet="Habitacion">
+                <ScalarProperty Name="idHabitacion" ColumnName="idHabitacion" />
+                <ScalarProperty Name="numeroHabitacion" ColumnName="numeroHabitacion" />
+                <ScalarProperty Name="idTipoHabitacionHabitacion" ColumnName="idTipoHabitacionHabitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotel">
+            <EntityTypeMapping TypeName="HighGardenResortModel.Hotel">
+              <MappingFragment StoreEntitySet="Hotel">
+                <ScalarProperty Name="idHotel" ColumnName="idHotel" />
+                <ScalarProperty Name="descripcionHotel" ColumnName="descripcionHotel" />
+                <ScalarProperty Name="sobreNosotrosHotel" ColumnName="sobreNosotrosHotel" />
+                <ScalarProperty Name="contactoHotel" ColumnName="contactoHotel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imagen">
+            <EntityTypeMapping TypeName="HighGardenResortModel.Imagen">
+              <MappingFragment StoreEntitySet="Imagen">
+                <ScalarProperty Name="idImagen" ColumnName="idImagen" />
+                <ScalarProperty Name="rutaImagen" ColumnName="rutaImagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenFacilidad">
+            <EntityTypeMapping TypeName="HighGardenResortModel.ImagenFacilidad">
+              <MappingFragment StoreEntitySet="ImagenFacilidad">
+                <ScalarProperty Name="idImagenFacilidad" ColumnName="idImagenFacilidad" />
+                <ScalarProperty Name="idImagenImagenFacilidad" ColumnName="idImagenImagenFacilidad" />
+                <ScalarProperty Name="idFacilidadImagenFacilidad" ColumnName="idFacilidadImagenFacilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenHotel">
+            <EntityTypeMapping TypeName="HighGardenResortModel.ImagenHotel">
+              <MappingFragment StoreEntitySet="ImagenHotel">
+                <ScalarProperty Name="idImagenHotel" ColumnName="idImagenHotel" />
+                <ScalarProperty Name="idImagenImagenHotel" ColumnName="idImagenImagenHotel" />
+                <ScalarProperty Name="idHotelImagenHotel" ColumnName="idHotelImagenHotel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenOferta">
+            <EntityTypeMapping TypeName="HighGardenResortModel.ImagenOferta">
+              <MappingFragment StoreEntitySet="ImagenOferta">
+                <ScalarProperty Name="idImagenOferta" ColumnName="idImagenOferta" />
+                <ScalarProperty Name="idImagenImagenOferta" ColumnName="idImagenImagenOferta" />
+                <ScalarProperty Name="idOfertaImagenOferta" ColumnName="idOfertaImagenOferta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenPublicidad">
+            <EntityTypeMapping TypeName="HighGardenResortModel.ImagenPublicidad">
+              <MappingFragment StoreEntitySet="ImagenPublicidad">
+                <ScalarProperty Name="idImagenPublicidad" ColumnName="idImagenPublicidad" />
+                <ScalarProperty Name="idImagenImagenPublicidad" ColumnName="idImagenImagenPublicidad" />
+                <ScalarProperty Name="iPublicidadImagenPublicidad" ColumnName="iPublicidadImagenPublicidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenTipoHabitacion">
+            <EntityTypeMapping TypeName="HighGardenResortModel.ImagenTipoHabitacion">
+              <MappingFragment StoreEntitySet="ImagenTipoHabitacion">
+                <ScalarProperty Name="idImagenTipoHabitacion" ColumnName="idImagenTipoHabitacion" />
+                <ScalarProperty Name="idImagenImagenTipoHabitacion" ColumnName="idImagenImagenTipoHabitacion" />
+                <ScalarProperty Name="idTipoHabitacionImagenTipoHabitacion" ColumnName="idTipoHabitacionImagenTipoHabitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oferta">
+            <EntityTypeMapping TypeName="HighGardenResortModel.Oferta">
+              <MappingFragment StoreEntitySet="Oferta">
+                <ScalarProperty Name="idOferta" ColumnName="idOferta" />
+                <ScalarProperty Name="descripcionOferta" ColumnName="descripcionOferta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publicidad">
+            <EntityTypeMapping TypeName="HighGardenResortModel.Publicidad">
+              <MappingFragment StoreEntitySet="Publicidad">
+                <ScalarProperty Name="idPublicidad" ColumnName="idPublicidad" />
+                <ScalarProperty Name="rutaPublicidad" ColumnName="rutaPublicidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reserva">
+            <EntityTypeMapping TypeName="HighGardenResortModel.Reserva">
+              <MappingFragment StoreEntitySet="Reserva">
+                <ScalarProperty Name="idReserva" ColumnName="idReserva" />
+                <ScalarProperty Name="idClienteReserva" ColumnName="idClienteReserva" />
+                <ScalarProperty Name="fechaInicioReserva" ColumnName="fechaInicioReserva" />
+                <ScalarProperty Name="fechaFinalReserva" ColumnName="fechaFinalReserva" />
+                <ScalarProperty Name="precioTotalReserva" ColumnName="precioTotalReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReservaHabitacion">
+            <EntityTypeMapping TypeName="HighGardenResortModel.ReservaHabitacion">
+              <MappingFragment StoreEntitySet="ReservaHabitacion">
+                <ScalarProperty Name="idReservaHabitacion" ColumnName="idReservaHabitacion" />
+                <ScalarProperty Name="idReservaReservaHabitacion" ColumnName="idReservaReservaHabitacion" />
+                <ScalarProperty Name="idHabitacionReservaHabitacion" ColumnName="idHabitacionReservaHabitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicio">
+            <EntityTypeMapping TypeName="HighGardenResortModel.Servicio">
+              <MappingFragment StoreEntitySet="Servicio">
+                <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+                <ScalarProperty Name="descripcionServicio" ColumnName="descripcionServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServicioTipoHabitacion">
+            <EntityTypeMapping TypeName="HighGardenResortModel.ServicioTipoHabitacion">
+              <MappingFragment StoreEntitySet="ServicioTipoHabitacion">
+                <ScalarProperty Name="idServicioTipoHabitacion" ColumnName="idServicioTipoHabitacion" />
+                <ScalarProperty Name="idServicioServicioTipoHabitacion" ColumnName="idServicioServicioTipoHabitacion" />
+                <ScalarProperty Name="idTipoHabitacionServicioTipoHabitacion" ColumnName="idTipoHabitacionServicioTipoHabitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoHabitacion">
+            <EntityTypeMapping TypeName="HighGardenResortModel.TipoHabitacion">
+              <MappingFragment StoreEntitySet="TipoHabitacion">
+                <ScalarProperty Name="idTipoHabitacion" ColumnName="idTipoHabitacion" />
+                <ScalarProperty Name="nombreTipoHabitacion" ColumnName="nombreTipoHabitacion" />
+                <ScalarProperty Name="descripcionTipoHabitacion" ColumnName="descripcionTipoHabitacion" />
+                <ScalarProperty Name="precioTipoHabitacion" ColumnName="precioTipoHabitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,59 @@
+﻿@model Data.Administrador
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Administrador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.usuarioAdministrador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuarioAdministrador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasennaAdministrador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasennaAdministrador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreAdministrador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreAdministrador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidosAdministrador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidosAdministrador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nivelAcceso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nivelAcceso)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idAdministrador }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="64fe58fb72414b7f912c45b3269927ba" Name="Diagram1">
+        <EntityTypeShape EntityType="HighGardenResortModel.Administrador" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.Cliente" Width="1.5" PointX="3.75" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.Facilidad" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.Habitacion" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.Hotel" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.Imagen" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.ImagenFacilidad" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.ImagenHotel" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.ImagenOferta" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.ImagenPublicidad" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.ImagenTipoHabitacion" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.Oferta" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.Publicidad" Width="1.5" PointX="3.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.Reserva" Width="1.5" PointX="6" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.ReservaHabitacion" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.Servicio" Width="1.5" PointX="3.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.ServicioTipoHabitacion" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighGardenResortModel.TipoHabitacion" Width="1.5" PointX="3.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="HighGardenResortModel.fk_clienteReserva" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_facilidadImagenFacilidad" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_habitacionReservaHabitacion" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_tipohabitacionHabitacion" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_hotelImagenHotel" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_imagenImagenFacilidad" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_imagenImagenHotel" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_imagenImagenOferta" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_imagenImagenPublicidad" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_imagenImagenTipoHabitacion" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_ofertaImagenOferta" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_publicidadImagenPublicidad" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_tipoHabitacionImagenTipoHabitacion" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_reservaReservaHabitacion" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_servicioServicioTipoHabitacion" ManuallyRouted="false" />
+        <AssociationConnector Association="HighGardenResortModel.fk_tipohabitacionServicioTipoHabitacion" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
